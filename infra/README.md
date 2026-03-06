@@ -12,3 +12,11 @@ terraform init -backend=false
 terraform validate
 terraform apply -auto-approve
 ```
+
+AWS Postgres example (validate-only; do not apply by default):
+
+```bash
+cd infra/examples/aws-postgres
+terraform init -backend=false
+terraform validate
+```

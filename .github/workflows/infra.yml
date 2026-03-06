@@ -18,3 +18,9 @@ jobs:
         run: |
           terraform init -backend=false
           terraform validate
+
+      - name: Terraform validate (aws-postgres example)
+        working-directory: infra/examples/aws-postgres
+        run: |
+          terraform init -backend=false
+          terraform validate

@@ -1,0 +1,33 @@
+03 - Problem Statement (Repository Validation Contract)
+
+Purpose
+This document defines the business context, technical requirements, and evaluation criteria that this repository is expected to satisfy.
+It is intentionally company- and role-agnostic.
+
+Business context (generic)
+- A team operates business-critical relational databases and must ship changes with minimal downtime and risk.
+- The environment is cloud-hosted and cost-sensitive.
+- Reliability and security must be demonstrable with runbooks, drills, and tests.
+
+Technical requirements (what must be true)
+1) Postgres reliability foundations
+   - A realistic HA lab (primary + replica) and connection pooling.
+   - Replication verification with clear, actionable output.
+   - Backup + restore workflows that produce artifacts and can be repeated.
+
+2) Migration readiness
+   - Documentation and operational patterns for safe rollout strategies.
+   - Automation-friendly workflows that reduce manual steps and ambiguity.
+
+3) Security and operability
+   - No secrets committed.
+   - CI includes secret scanning and basic quality gates.
+   - Tests have two explicit modes:
+     - demo: mocks/fakes only (no external calls)
+     - production: real integrations when correctly configured and explicitly acknowledged
+
+Top 3 pain points this repository must solve
+1) “Backups exist, but restores are unpracticed and unreliable.”
+2) “High availability and replication behavior are not verified.”
+3) “Migrations are risky because procedures are undocumented and untested.”
+
